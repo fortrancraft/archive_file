@@ -59,6 +59,10 @@ def main():
     else:
         drnote = ''
 
+    if not os.path.isfile(args.input_file):
+        msg = 'Input file, "{}" does not exist!'.format(args.input_file)
+        raise FileNotFoundError(msg)
+
     # Create the directory destination if it does not exist.
     if not os.path.isdir(args.da):
         if not args.dry_run:
